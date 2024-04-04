@@ -1,12 +1,16 @@
 <template>
   <div class="card" @click="navigateToLink">
-    <div class="card-image">
-      <img :src="image" :alt="alt" />
-    </div>
     <div class="card-content">
-      <h3>{{ name }}</h3>
-      <p>{{ description }}</p>
-      <p class="date">{{ date }}</p>
+      <div class="small-info">
+          <div class="card-image">
+            <img :src="image" :alt="alt" />
+           </div>
+        <h3>{{ name }}</h3>
+        <p class="date">{{ date }}</p>
+      </div>
+      <div>
+        <p>{{ description }}</p>
+      </div>
     </div>
     <div class="card-hover-overlay">
       <i class="fas fa-external-link-alt"></i>
@@ -39,6 +43,7 @@ const navigateToLink = () => {
   position: relative;
   transition: transform 0.3s ease;
   cursor: pointer;
+  width: 100%;
 }
 
 .card:hover {
@@ -64,6 +69,17 @@ const navigateToLink = () => {
 
 .card-content {
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.small-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card-content h3 {

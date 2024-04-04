@@ -4,9 +4,9 @@
             <h1>Hamish Burke</h1>
             <div class="socials">
                 <a href="mailto:hamishapps@gmail.com" target="_blank">Email</a>
-                <a href="instagram.com/hamishcreatingbadstuff" target="_blank">Instagram</a>
-                <a href="linkedin.com/in/hamish-burke-2301669a" target="_blank">LinkedIn</a>
-                <a href="github.com/Slaymish" target="_blank">GitHub</a>
+                <a href="https://instagram.com/hamishcreatingbadstuff" target="_blank">Instagram</a>
+                <a href="https://linkedin.com/in/hamish-burke-2301669a" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Slaymish" target="_blank">GitHub</a>
             </div>            
         </div>
 

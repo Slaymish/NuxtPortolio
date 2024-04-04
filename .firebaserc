@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "portfoliosite-5df6a",
+    "realsite": "portfoliosite-5df6a",
+    "realdomain": "test-7e9fa"
+  },
+  "targets": {},
+  "etags": {}
+}

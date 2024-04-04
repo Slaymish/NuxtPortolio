@@ -2,10 +2,10 @@
   <div class="layout">
     <nav class="nav">
       <ul>
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/projects">Projects</NuxtLink></li>
-        <li><NuxtLink to="/notes">Notes</NuxtLink></li>
-        <li><NuxtLink to="/about">About me</NuxtLink></li>
+        <li><NuxtLink to="/" :class="{active: activeLink == '/'}" @click="activeLink = '/'">Home</NuxtLink></li>
+        <li><NuxtLink to="/projects" :class="{active: activeLink == '/projects'}" @click="activeLink = '/projects'">Projects</NuxtLink></li>
+        <li><NuxtLink to="/notes" :class="{active: activeLink == '/notes'}" @click="activeLink = '/notes'">Notes</NuxtLink></li>
+        <li><NuxtLink to="/about" :class="{active: activeLink == '/about'}" @click="activeLink = '/about'">About</NuxtLink></li>
       </ul>
     </nav>
     <main class="content">
@@ -18,6 +18,11 @@
 </template>
 
 <script setup>
+/* make active link bold (using nuxt-link-active class) */
+import { ref } from 'vue'
+
+const activeLink = ref("/")
+
 </script>
 
 <style>
@@ -53,7 +58,8 @@
 }
 
 .nav ul li a:hover,
-.nav ul li a:focus {
+.nav ul li a:focus,
+.nav ul li a.active {
   background-color: var(--color-primary);
   color: var(--color-dark);
 }
