@@ -13,10 +13,13 @@
     "lintfix": "prettier --write --list-different . && npm run lint:js -- --fix"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
+    "@fortawesome/vue-fontawesome": "^3.0.6",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/server-renderer": "^3.4.21",
     "core-js": "^3.25.3",
-    "firebase": "^10.10.0",
+    "firebase": "^9.6.2",
     "nuxt": "^3.11.1",
     "oh-vue-icons": "^1.0.0-rc3",
     "vue": "^3.2.25",

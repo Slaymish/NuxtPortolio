@@ -7,45 +7,37 @@
             <div class="notes">
                 <div v-for="note in notes" :key="note.title" class="note">
                     <h2>{{ note.title }}</h2>
-                    <p>{{ note.content }}</p>
-                    <p>{{ note.date }}</p>
+                    <p class="date">
+                        <em>{{ note.date.toDate().toLocaleDateString() }}</em>
+                    </p>
+                    <p>{{ note.note }}</p>
                 </div>
             </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { useCollection } from 'vuefire'
+import { collection , getFirestore } from 'firebase/firestore'
+import { firebaseApp } from '../firebase.ts'
 
-const notes = ref([
-    {
-        title: 'Note 1',
-        content: 'This is a note',
-        date: '2021-10-10'
-    },
-    {
-        title: 'Note 2',
-        content: 'This is a note',
-        date: '2021-10-10'
-    },
-    {
-        title: 'Note 3',
-        content: 'This is a note',
-        date: '2021-10-10'
-    },
-    {
-        title: 'Note 4',
-        content: 'This is a note',
-        date: '2021-10-10'
-    },
-    {
-        title: 'Note 5',
-        content: 'This is a note',
-        date: '2021-10-10'
-    }
-]);
+const db = getFirestore(firebaseApp)
+const projectsCollection = collection(db, 'notes')
 
+// Use useCollection to create a reactive binding to the Firestore collection
+const { data: notes } = useCollection(projectsCollection)
 
+// Sort by timestamp
+notes.value.sort((a, b) => b.date - a.date)
+
+// Track whether data is still loading
+const isLoading = ref(true)
+
+// Set isLoading to false when data is loaded
+if (notes) {
+    isLoading.value = false
+}
 
 </script>
 
@@ -75,18 +67,24 @@ const notes = ref([
 }
 
 .notes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+}
+
+.date {
+    color: var(--color-accent);
+    margin-top: 5px;
 }
 
 .note {
     background-color: var(--color-background);
-    padding: 30px;
     border-radius: 8px;
+    padding: 20px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .note:hover {

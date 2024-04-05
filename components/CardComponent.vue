@@ -6,7 +6,7 @@
             <img :src="image" :alt="alt" />
            </div>
         <h3>{{ name }}</h3>
-        <p class="date">{{ date }}</p>
+        <p class="date">{{ date.toDate().toLocaleDateString() }} </p>
       </div>
       <div>
         <p>{{ description }}</p>
@@ -20,13 +20,15 @@
 </template>
 
 <script setup>
+import { Timestamp } from 'firebase/firestore';
+
 const props = defineProps({
   name: String,
   description: String,
   link: String,
   image: String,
   alt: String,
-  date: String,
+  date: Timestamp,
 });
 
 const navigateToLink = () => {
@@ -80,6 +82,8 @@ const navigateToLink = () => {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  width: 100%;
 }
 
 .card-content h3 {

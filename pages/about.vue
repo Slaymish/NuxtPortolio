@@ -31,7 +31,7 @@
                     <p><em>Tauranga Boys College (2017-2021)</em></p>
                     <br>
                     <p>A+ in COMP101</p>
-                    <p><em>JumpStart program at Waikato University (2021)</em></p>
+                    <p><em>Unistart program at Waikato University (2021)</em></p>
                 </div>
 
                 <br>

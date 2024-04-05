@@ -7,35 +7,44 @@
 
     <div class="socials">
       <a href="mailto:hamishapps@gmail.com" target="_blank" aria-label="Email">
-        <i class="fas fa-envelope"></i>
+        Mail
       </a>
       <a href="http://github.com/Slaymish" target="_blank" aria-label="GitHub">
-        <i class="fab fa-github"></i>
+        GitHub
       </a>
       <a href="http://instagram.com/hamishcreatingbadstuff" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
+        Instagram
       </a>
       <a href="https://www.linkedin.com/in/hamish-burke-2301669a/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin"></i>
+        LinkedIn
       </a>
     </div>
     <p>&copy; {{ currentYear }} Hamish Burke. All rights reserved.</p>
+
+    <div class="login">
+      <LoginButtonComponent />
+    </div>
   </div>
 </template>
 
 <script setup>
+import LoginButtonComponent from '~/components/LoginButtonComponent.vue';
 import { ref } from 'vue';
+
 
 const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>
+
+
+
 .footer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
 }
 
 .socials {
@@ -47,7 +56,7 @@ const currentYear = ref(new Date().getFullYear());
 
 .socials a {
   color: var(--color-background);
-  font-size: 24px;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 

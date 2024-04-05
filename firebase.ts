@@ -19,3 +19,4 @@ if(process.client) {
   analytics = getAnalytics(firebaseApp);
   performance = getPerformance(firebaseApp); // Add this line
 }
+

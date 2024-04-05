@@ -47,6 +47,9 @@ const projectsCollection = collection(db, 'projects')
 // Use useCollection to create a reactive binding to the Firestore collection
 const { data: projects } = useCollection(projectsCollection)
 
+// Sort by timestamp
+projects.value.sort((a, b) => b.date - a.date)
+
 // Track whether data is still loading
 const isLoading = ref(true)
 
