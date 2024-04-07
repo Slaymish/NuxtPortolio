@@ -113,4 +113,15 @@ if (projects) {
   transform: translateY(-10px) scale(1.05);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+  
+}
 </style>
