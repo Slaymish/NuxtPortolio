@@ -148,6 +148,30 @@ const navigateTo = (path) => {
   .highlights {
     flex-direction: column;
   }
+
+  .teaser {
+    margin-bottom: 30px;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+
+  .cta-main {
+    margin-bottom: 30px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 1.4rem;
+  }
 }
 
 .contact-teaser {
