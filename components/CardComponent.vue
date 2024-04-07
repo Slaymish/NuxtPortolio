@@ -131,4 +131,25 @@ const navigateToLink = () => {
   color: var(--color-background);
   font-size: 16px;
 }
+
+
+@media screen and (max-width: 768px){
+  .card-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-content h3 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+  
+}
 </style>

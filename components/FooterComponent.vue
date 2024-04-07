@@ -85,4 +85,25 @@ p {
   margin: 0;
   font-size: 14px;
 }
+
+@media screen and (max-width: 768px){
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .socials {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .socials a {
+    font-size: 14px;
+  }
+
+  .button {
+    padding: 10px;
+  }
+  
+}
 </style>
