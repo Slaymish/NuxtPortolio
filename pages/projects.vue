@@ -60,6 +60,8 @@ if (projects) {
 </script>
 
 <style scoped>
+@import "../assets/main.css";
+
 .container {
   max-width: 1200px;
   margin: auto;

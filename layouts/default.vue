@@ -7,23 +7,22 @@
         <div></div>
       </div>
     </div>
-    <transition name="slide-right">
-      <nav class="nav" v-show="hamburgerMenuOpen" @click.stop>
-        <ul>
-          <li><nuxt-link to="/" exact-active-class="active-link" class="nav-link">Home</nuxt-link></li>
-          <li><nuxt-link to="/projects" exact-active-class="active-link" class="nav-link">Projects</nuxt-link></li>
-          <li><nuxt-link to="/about" exact-active-class="active-link" class="nav-link">About</nuxt-link></li>
-          <li><nuxt-link to="/notes" exact-active-class="active-link" class="nav-link">Notes</nuxt-link></li>
-          <li><nuxt-link to="/contact" exact-active-class="active-link" class="nav-link">Contact</nuxt-link></li>
-        </ul>
-      </nav>
-    </transition>
-    <main class="content">
-      <slot></slot>
-    </main>
-    <footer class="footer">
-      <FooterComponent />
-    </footer>
+    <nav class="nav" :class="{ 'open': hamburgerMenuOpen }" @click.stop>
+      <ul>
+        <li><nuxt-link to="/" exact-active-class="active-link" class="nav-link">Home</nuxt-link></li>
+        <li><nuxt-link to="/projects" exact-active-class="active-link" class="nav-link">Projects</nuxt-link></li>
+        <li><nuxt-link to="/about" exact-active-class="active-link" class="nav-link">About</nuxt-link></li>
+        <li><nuxt-link to="/notes" exact-active-class="active-link" class="nav-link">Notes</nuxt-link></li>
+      </ul>
+    </nav>
+    <div class="main-wrapper">
+      <main class="content">
+        <slot></slot>
+      </main>
+      <footer class="footer">
+        <FooterComponent />
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -57,7 +56,6 @@ onUnmounted(() => {
 
 .layout {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   width: 100%;
 }
@@ -70,13 +68,8 @@ onUnmounted(() => {
   width: 250px;
   background-color: var(--color-dark);
   padding: 20px;
-  transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
-}
-
-.menu-open .nav {
-  transform: translateX(0);
 }
 
 .nav ul {
@@ -88,46 +81,7 @@ onUnmounted(() => {
 }
 
 .hamburger {
-  position: fixed;
-  top: 50vh;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 60px;
-  background-color: var(--color-dark);
-  border-radius: 0 5px 5px 0;
-  z-index: 1001;
-  cursor: pointer;
-}
-
-.hamburger-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
-}
-
-.hamburger-box div {
-  width: 100%;
-  height: 2px;
-  background-color: var(--color-background);
-  transition: transform 0.3s ease;
-}
-
-.menu-open .hamburger-box div:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-open .hamburger-box div:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-open .hamburger-box div:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  display: none;
 }
 
 .nav ul li a {
@@ -146,11 +100,19 @@ onUnmounted(() => {
   color: var(--color-dark);
 }
 
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  padding: 0 20px; /* Add equal padding on both sides */
+}
+
 .content {
   flex: 1;
-  padding: 20px;
-  margin: 0 auto;
-  max-width: 800px;
+  max-width: 800px; /* Set a maximum width for the content */
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px 0; /* Adjust vertical padding */
 }
 
 .footer {
@@ -160,18 +122,60 @@ onUnmounted(() => {
   text-align: center;
 }
 
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: transform 0.3s ease;
-}
+@media (max-width: 768px) {
+  .nav {
+    transform: translateX(-100%);
+  }
 
-.slide-right-enter-from,
-.slide-right-leave-to {
-  transform: translateX(-100%);
-}
+  .nav.open {
+    transform: translateX(0);
+  }
 
-.slide-right-enter-to,
-.slide-right-leave-from {
-  transform: translateX(0);
+  .hamburger {
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 60px;
+    background-color: var(--color-dark);
+    border-radius: 0 5px 5px 0;
+    z-index: 1001;
+    cursor: pointer;
+  }
+
+  .hamburger-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+  }
+
+  .hamburger-box div {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-background);
+    transition: transform 0.3s ease;
+  }
+
+  .menu-open .hamburger-box div:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-open .hamburger-box div:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-open .hamburger-box div:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .main-wrapper {
+    margin-left: 0;
+  }
 }
 </style>
