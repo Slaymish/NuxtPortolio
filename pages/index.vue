@@ -25,7 +25,7 @@
     <section class="contact-teaser">
       <h2>Let's Collaborate</h2>
       <p>Have an idea or project in mind? I'm all ears. Let's make something great together.</p>
-      <NuxtLink to="/contact" class="cta-button cta-main">Get In Touch</NuxtLink>
+      <NuxtLink to="/about" class="cta-button">Get in Touch</NuxtLink>
     </section>
   </div>
 </template>

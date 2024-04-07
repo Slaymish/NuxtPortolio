@@ -14,7 +14,6 @@
           <p>I'm graduating from Victoria University of Wellington in computer science, specialising in cybersecurity, this year. I love working on my own tech projects beyond my classes and jobs. I'm really good at organising my time, which lets me keep up with my studies and still play around with new tech ideas. I'm super into programming and always picking up new things, which helps me do well whether I'm working alone or with others.</p>
           <div class="pages">
               <NuxtLink to="/projects">View My Projects</NuxtLink>
-              <NuxtLink to="/contact">Contact Me</NuxtLink>
           </div>
       </div>
 

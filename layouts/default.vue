@@ -49,6 +49,10 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', closeMenu);
 });
+
+const auth = ref(null);
+
+
 </script>
 
 <style>
