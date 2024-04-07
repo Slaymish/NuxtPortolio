@@ -93,4 +93,19 @@
 .social-links a[href*="github.com"]::before {
   background-image: url('path/to/github-icon.svg');
 }
+
+
+@media screen and (max-width: 768px){
+  .contact-container {
+    width: 100vw;
+    padding: 40px;
+    overflow: hidden;
+
+  }
+
+  .hero {
+    padding: 60px 30px;
+    max-width: 100vw;
+  }
+}
 </style>
